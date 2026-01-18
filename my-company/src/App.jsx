@@ -18,7 +18,9 @@ function App() {
         backgroundColor: '#f8f9fa'
       }}>
         <Navbar />
-        <main style={{ flex: 1 }}>
+        <main style={{ 
+          flex: 1,
+        }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
