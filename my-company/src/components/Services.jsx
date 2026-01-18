@@ -9,7 +9,7 @@ function Services() {
     },
     {
       title: "Market Analysis",
-      description: "Comprehensive market research and analysis to drive your fashion-tech business decisions.",
+      description: "Comprehensive market research and analysis to drive your business decisions.",
       icon: "📊"
     },
     {
@@ -23,9 +23,9 @@ function Services() {
       icon: "🎯"
     },
     {
-      title: "Immersive Fashion Experiences",
-      description: "Augmented and virtual reality experiences to showcase your fashion products.",
-      icon: "🕶️"
+      title: "Cloud Solutions",
+      description: "Scalable cloud infrastructure and migration services.",
+      icon: "☁️"
     },
     {
       title: "Data Analytics",
@@ -46,7 +46,7 @@ function Services() {
         marginBottom: '3rem'
       }}>
         <h1 style={{
-          color: '#B76E79', // soft pink
+          color: '#2c3e50',
           fontSize: '2.5rem',
           marginBottom: '1rem'
         }}>
@@ -54,11 +54,11 @@ function Services() {
         </h1>
         <p style={{
           fontSize: '1.1rem',
-          color: '#555555',
+          color: '#7f8c8d',
           maxWidth: '600px',
           margin: '0 auto'
         }}>
-          We offer a comprehensive suite of services designed to help your fashion-tech business thrive with innovation, creativity, and immersive experiences.
+          We offer a comprehensive suite of services designed to help your business thrive in today's competitive landscape.
         </p>
       </div>
 
@@ -68,24 +68,24 @@ function Services() {
         gap: '2rem'
       }}>
         {services.map((service, index) => (
-          <div
+          <div 
             key={index}
             style={{
-              backgroundColor: '#ffffff',
+              backgroundColor: 'white',
               padding: '2rem',
               borderRadius: '10px',
-              boxShadow: '0 4px 6px rgba(0,0,0,0.08)',
+              boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
               textAlign: 'center',
               transition: 'transform 0.3s, box-shadow 0.3s',
-              border: '1px solid #f5d3da' // soft pink border
+              border: '1px solid #ecf0f1'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-5px)';
-              e.currentTarget.style.boxShadow = '0 8px 15px rgba(0,0,0,0.12)';
+              e.currentTarget.style.boxShadow = '0 8px 15px rgba(0,0,0,0.2)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 6px rgba(0,0,0,0.08)';
+              e.currentTarget.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
             }}
           >
             <div style={{
@@ -94,41 +94,37 @@ function Services() {
             }}>
               {service.icon}
             </div>
-
             <h3 style={{
-              color: '#7d2953', // darker pink for headings
+              color: '#2c3e50',
               marginBottom: '1rem',
               fontSize: '1.5rem'
             }}>
               {service.title}
             </h3>
-
             <p style={{
-              color: '#555555',
+              color: '#7f8c8d',
               lineHeight: '1.6'
             }}>
               {service.description}
             </p>
-
-            <button
-              style={{
-                backgroundColor: 'transparent',
-                color: '#B76E79', // soft pink button
-                border: '2px solid #B76E79',
-                padding: '0.5rem 1.5rem',
-                borderRadius: '5px',
-                cursor: 'pointer',
-                marginTop: '1rem',
-                transition: 'all 0.3s'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#B76E79';
-                e.target.style.color = '#ffffff';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = '#B76E79';
-              }}
+            <button style={{
+              backgroundColor: 'transparent',
+              color: '#3498db',
+              border: '2px solid #3498db',
+              padding: '0.5rem 1.5rem',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              marginTop: '1rem',
+              transition: 'all 0.3s'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#3498db';
+              e.target.style.color = 'white';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = 'transparent';
+              e.target.style.color = '#3498db';
+            }}
             >
               Learn More
             </button>

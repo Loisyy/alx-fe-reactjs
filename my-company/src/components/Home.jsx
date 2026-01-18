@@ -8,91 +8,89 @@ function Home() {
       margin: '0 auto',
       minHeight: 'calc(100vh - 200px)'
     }}>
-      {/* Hero Section */}
       <div style={{
         textAlign: 'center',
         padding: '4rem 2rem',
-        backgroundColor: '#fff0f6', // soft blush pink
-        borderRadius: '12px',
+        backgroundColor: '#ecf0f1',
+        borderRadius: '10px',
         marginBottom: '2rem'
       }}>
         <h1 style={{
-          color: '#B76E79', // deep fashion pink
+          color: '#2c3e50',
           fontSize: '3rem',
           marginBottom: '1rem'
         }}>
-          Welcome to LoisnyksDesign
+          Welcome to Our Company
         </h1>
-
         <p style={{
           fontSize: '1.2rem',
-          color: '#6b214a',
-          lineHeight: '1.7',
-          maxWidth: '650px',
+          color: '#7f8c8d',
+          lineHeight: '1.6',
+          maxWidth: '600px',
           margin: '0 auto 2rem auto'
         }}>
-          We create immersive fashion-tech experiences that blend design,
-          innovation, and digital technology — redefining how fashion is
-          imagined and experienced.
+          We are dedicated to delivering excellence in all our services. 
+          Our team of professionals is committed to helping your business grow.
         </p>
-
-        <button
-          style={{
-            backgroundColor: '#b83280',
-            color: '#ffffff',
-            border: 'none',
-            padding: '1rem 2.5rem',
-            fontSize: '1.1rem',
-            borderRadius: '30px',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={(e) => e.target.style.backgroundColor = '#9d174d'}
-          onMouseLeave={(e) => e.target.style.backgroundColor = '#b83280'}
+        <button style={{
+          backgroundColor: '#3498db',
+          color: 'white',
+          border: 'none',
+          padding: '1rem 2rem',
+          fontSize: '1.1rem',
+          borderRadius: '5px',
+          cursor: 'pointer',
+          transition: 'background-color 0.3s'
+        }}
+        onMouseEnter={(e) => e.target.style.backgroundColor = '#2980b9'}
+        onMouseLeave={(e) => e.target.style.backgroundColor = '#3498db'}
         >
-          Explore Our Work
+          Get Started
         </button>
       </div>
-
-      {/* Value Cards */}
+      
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
         gap: '2rem',
         marginTop: '3rem'
       }}>
-        {[
-          {
-            title: 'Immersive Design',
-            text: 'We design XR-driven fashion experiences that blur the line between physical and digital.'
-          },
-          {
-            title: 'Fashion Technology',
-            text: 'From virtual try-ons to digital garments, we merge fashion with cutting-edge tech.'
-          },
-          {
-            title: 'Creative Innovation',
-            text: 'We push creative boundaries using emerging technologies and human-centered design.'
-          }
-        ].map((item, index) => (
-          <div
-            key={index}
-            style={{
-              padding: '2rem',
-              backgroundColor: '#ffffff',
-              borderRadius: '10px',
-              boxShadow: '0 4px 15px rgba(184, 50, 128, 0.15)',
-              textAlign: 'center'
-            }}
-          >
-            <h3 style={{ color: '#9d174d', marginBottom: '1rem' }}>
-              {item.title}
-            </h3>
-            <p style={{ color: '#555555', lineHeight: '1.6' }}>
-              {item.text}
-            </p>
-          </div>
-        ))}
+        <div style={{
+          padding: '2rem',
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+          textAlign: 'center'
+        }}>
+          <h3 style={{ color: '#2c3e50' }}>Innovation</h3>
+          <p style={{ color: '#7f8c8d' }}>
+            We stay ahead of the curve with cutting-edge solutions and innovative approaches.
+          </p>
+        </div>
+        <div style={{
+          padding: '2rem',
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+          textAlign: 'center'
+        }}>
+          <h3 style={{ color: '#2c3e50' }}>Quality</h3>
+          <p style={{ color: '#7f8c8d' }}>
+            Excellence is our standard. We deliver nothing but the highest quality services.
+          </p>
+        </div>
+        <div style={{
+          padding: '2rem',
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+          textAlign: 'center'
+        }}>
+          <h3 style={{ color: '#2c3e50' }}>Support</h3>
+          <p style={{ color: '#7f8c8d' }}>
+            Our dedicated support team is here to help you 24/7 with any questions.
+          </p>
+        </div>
       </div>
     </div>
   );

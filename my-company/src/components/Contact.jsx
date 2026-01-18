@@ -1,22 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Thank you, ${formData.name}! Your message has been sent.`);
-    setFormData({ name: '', email: '', message: '' });
-  };
-
+function Home() {
   return (
     <div style={{
       padding: '2rem',
@@ -25,136 +9,91 @@ function Contact() {
       minHeight: 'calc(100vh - 200px)'
     }}>
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '3rem',
-        alignItems: 'start'
+        textAlign: 'center',
+        padding: '4rem 2rem',
+        backgroundColor: '#ecf0f1',
+        borderRadius: '10px',
+        marginBottom: '2rem'
       }}>
-        {/* Contact Form */}
-        <div style={{
-          backgroundColor: '#ffffff',
-          padding: '3rem',
-          borderRadius: '10px',
-          boxShadow: '0 2px 10px rgba(0,0,0,0.08)'
+        <h1 style={{
+          color: '#2c3e50',
+          fontSize: '3rem',
+          marginBottom: '1rem'
         }}>
-          <h1 style={{
-            color: '#B76E79', // soft pink headline
-            fontSize: '2.5rem',
-            marginBottom: '2rem',
-            textAlign: 'center'
-          }}>
-            Contact LoisnyksDesign
-          </h1>
-
-          <form onSubmit={handleSubmit}>
-            {['name', 'email'].map((field) => (
-              <div key={field} style={{ marginBottom: '1.5rem' }}>
-                <label style={{
-                  display: 'block',
-                  marginBottom: '0.5rem',
-                  color: '#7f5a6a', // soft warm text
-                  fontWeight: 'bold'
-                }}>
-                  {field.charAt(0).toUpperCase() + field.slice(1)}
-                </label>
-                <input
-                  type={field === 'email' ? 'email' : 'text'}
-                  name={field}
-                  placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
-                  value={formData[field]}
-                  onChange={handleChange}
-                  required
-                  style={{
-                    width: '100%',
-                    padding: '1rem',
-                    border: '2px solid #f5e6e8', // soft pink border
-                    borderRadius: '5px',
-                    fontSize: '1rem',
-                    transition: 'border-color 0.3s'
-                  }}
-                  onFocus={(e) => e.target.style.borderColor = '#B76E79'}
-                  onBlur={(e) => e.target.style.borderColor = '#f5e6e8'}
-                />
-              </div>
-            ))}
-
-            <div style={{ marginBottom: '2rem' }}>
-              <label style={{
-                display: 'block',
-                marginBottom: '0.5rem',
-                color: '#7f5a6a',
-                fontWeight: 'bold'
-              }}>
-                Message
-              </label>
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows="5"
-                style={{
-                  width: '100%',
-                  padding: '1rem',
-                  border: '2px solid #f5e6e8',
-                  borderRadius: '5px',
-                  fontSize: '1rem',
-                  resize: 'vertical',
-                  transition: 'border-color 0.3s'
-                }}
-                onFocus={(e) => e.target.style.borderColor = '#B76E79'}
-                onBlur={(e) => e.target.style.borderColor = '#f5e6e8'}
-              />
-            </div>
-
-            <button
-              type="submit"
-              style={{
-                width: '100%',
-                backgroundColor: '#B76E79', // soft pink button
-                color: 'white',
-                border: 'none',
-                padding: '1rem 2rem',
-                fontSize: '1.1rem',
-                borderRadius: '5px',
-                cursor: 'pointer',
-                transition: 'background-color 0.3s'
-              }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#9d5a6a'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = '#B76E79'}
-            >
-              Send Message
-            </button>
-          </form>
+          Welcome to Our Company
+        </h1>
+        <p style={{
+          fontSize: '1.2rem',
+          color: '#7f8c8d',
+          lineHeight: '1.6',
+          maxWidth: '600px',
+          margin: '0 auto 2rem auto'
+        }}>
+          We are dedicated to delivering excellence in all our services. 
+          Our team of professionals is committed to helping your business grow.
+        </p>
+        <button style={{
+          backgroundColor: '#3498db',
+          color: 'white',
+          border: 'none',
+          padding: '1rem 2rem',
+          fontSize: '1.1rem',
+          borderRadius: '5px',
+          cursor: 'pointer',
+          transition: 'background-color 0.3s'
+        }}
+        onMouseEnter={(e) => e.target.style.backgroundColor = '#2980b9'}
+        onMouseLeave={(e) => e.target.style.backgroundColor = '#3498db'}
+        >
+          Get Started
+        </button>
+      </div>
+      
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gap: '2rem',
+        marginTop: '3rem'
+      }}>
+        <div style={{
+          padding: '2rem',
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+          textAlign: 'center'
+        }}>
+          <h3 style={{ color: '#2c3e50' }}>Innovation</h3>
+          <p style={{ color: '#7f8c8d' }}>
+            We stay ahead of the curve with cutting-edge solutions and innovative approaches.
+          </p>
         </div>
-
-        {/* Contact Information */}
         <div style={{
-          backgroundColor: '#f9e6ec', // soft pink background
-          color: '#7f5a6a', // soft warm text
-          padding: '3rem',
-          borderRadius: '10px'
+          padding: '2rem',
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+          textAlign: 'center'
         }}>
-          <h2 style={{ marginBottom: '2rem', fontSize: '2rem', color: '#B76E79' }}>
-            Get In Touch
-          </h2>
-
-          {[
-            ['Address', '123 Fashion Street\nSuite 100\nNew York, NY 10001'],
-            ['Phone', '+1 (555) 123-4567'],
-            ['Email', 'contact@loisnyksdesign.com'],
-            ['Business Hours', 'Mon–Fri: 9AM–6PM\nSat: 10AM–4PM\nSun: Closed']
-          ].map(([title, text]) => (
-            <div key={title} style={{ marginBottom: '2rem' }}>
-              <h3 style={{ color: '#B76E79', marginBottom: '1rem' }}>{title}</h3>
-              <p style={{ whiteSpace: 'pre-line' }}>{text}</p>
-            </div>
-          ))}
+          <h3 style={{ color: '#2c3e50' }}>Quality</h3>
+          <p style={{ color: '#7f8c8d' }}>
+            Excellence is our standard. We deliver nothing but the highest quality services.
+          </p>
+        </div>
+        <div style={{
+          padding: '2rem',
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+          textAlign: 'center'
+        }}>
+          <h3 style={{ color: '#2c3e50' }}>Support</h3>
+          <p style={{ color: '#7f8c8d' }}>
+            Our dedicated support team is here to help you 24/7 with any questions.
+          </p>
         </div>
       </div>
     </div>
   );
 }
 
-export default Contact;
+export default Home;
