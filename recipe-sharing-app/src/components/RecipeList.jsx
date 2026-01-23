@@ -1,5 +1,6 @@
 import React from 'react';
-import { useRecipeStore } from '../store/recipeStore';
+import { Link } from 'react-router-dom';
+import useRecipeStore from './recipeStore';
 
 const RecipeList = () => {
   const {
@@ -10,7 +11,6 @@ const RecipeList = () => {
     favorites,
   } = useRecipeStore();
 
-  // Helper to check if a recipe is already a favorite
   const isFavorite = (id) => favorites.includes(id);
 
   return (
@@ -29,10 +29,10 @@ const RecipeList = () => {
               marginBottom: '10px',
             }}
           >
-            <h3>{recipe.title}</h3>
+            <h3>
+              <Link to={`/recipe/${recipe.id}`}>{recipe.title}</Link>
+            </h3>
             <p>{recipe.description}</p>
-
-            {/* Favorite toggle button */}
             <button
               onClick={() =>
                 isFavorite(recipe.id)
@@ -51,8 +51,6 @@ const RecipeList = () => {
             >
               {isFavorite(recipe.id) ? '💔 Unfavorite' : '❤️ Favorite'}
             </button>
-
-            {/* Delete button */}
             <button
               onClick={() => deleteRecipe(recipe.id)}
               style={{
