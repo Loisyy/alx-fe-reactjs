@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRecipeStore } from './recipeStore';
+import useRecipeStore from './recipeStore';
 
 const RecommendationsList = () => {
   // Access recommendations and action from the store

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRecipeStore } from './recipeStore';
+import useRecipeStore from './recipeStore';
 
 const FavoritesList = () => {
   // Access recipes and favorite IDs from Zustand
