@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { fetchUserData } from "../services/githubService";
+import { searchUsers } from "../services/githubService"; // updated service for advanced search
 
 function Search() {
   const [username, setUsername] = useState("");
   const [location, setLocation] = useState("");
   const [minRepos, setMinRepos] = useState("");
 
-  const [user, setUser] = useState(null);
+  const [users, setUsers] = useState([]); // array of users for advanced search
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -16,20 +16,24 @@ function Search() {
 
     setLoading(true);
     setError("");
-    setUser(null);
+    setUsers([]); // reset previous results
 
     try {
-      const data = await fetchUserData(username);
-      setUser(data);
+      const data = await searchUsers({ username, location, minRepos });
+      if (data.length === 0) {
+        setError("Looks like we can't find any users");
+      } else {
+        setUsers(data);
+      }
     } catch (err) {
-      setError("Looks like we cant find the user");
+      setError("Looks like we can't find any users");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="max-w-xl mx-auto p-4">
+    <div className="max-w-4xl mx-auto p-4">
       {/* Search Form */}
       <form
         onSubmit={handleSubmit}
@@ -78,25 +82,38 @@ function Search() {
       {loading && <p className="text-center mt-4">Loading...</p>}
       {error && <p className="text-center text-red-500 mt-4">{error}</p>}
 
-      {/* Basic result (temporary, will upgrade later) */}
-      {user && (
-        <div className="mt-6 text-center">
-          <img
-            src={user.avatar_url}
-            alt={user.login}
-            className="w-24 h-24 rounded-full mx-auto"
-          />
-          <h3 className="mt-2 font-semibold">
-            {user.name || user.login}
-          </h3>
-          <a
-            href={user.html_url}
-            target="_blank"
-            rel="noreferrer"
-            className="text-blue-600 hover:underline"
-          >
-            View GitHub Profile
-          </a>
+      {/* Render multiple search results */}
+      {users.length > 0 && (
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+          {users.map((user) => (
+            <div
+              key={user.id}
+              className="bg-white p-4 rounded-lg shadow-md text-center"
+            >
+              <img
+                src={user.avatar_url}
+                alt={user.login}
+                className="w-24 h-24 rounded-full mx-auto"
+              />
+              <h3 className="mt-2 font-semibold">{user.name || user.login}</h3>
+              {user.location && (
+                <p className="text-sm text-gray-500">{user.location}</p>
+              )}
+              {user.public_repos !== undefined && (
+                <p className="text-sm text-gray-500">
+                  Repos: {user.public_repos}
+                </p>
+              )}
+              <a
+                href={user.html_url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-blue-600 hover:underline"
+              >
+                View GitHub Profile
+              </a>
+            </div>
+          ))}
         </div>
       )}
     </div>
