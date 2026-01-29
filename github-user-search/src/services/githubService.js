@@ -1,27 +1,40 @@
 import axios from "axios";
 
-// Base GitHub API endpoint for user search
-const BASE_URL = "https://api.github.com/users";
+// GitHub Search API endpoint
+const BASE_URL = "https://api.github.com/search/users";
 
 // Optional GitHub API token (for higher rate limits)
 const API_KEY = import.meta.env.VITE_APP_GITHUB_API_KEY;
 
 /**
- * Fetch GitHub user data by username
- * @param {string} username - GitHub username entered by the user
- * @returns {Object} GitHub user data
+ * Fetch GitHub users using advanced search criteria
+ * @param {Object} params
+ * @param {string} params.username - Username or keyword
+ * @param {string} params.location - User location
+ * @param {string|number} params.minRepos - Minimum repository count
  */
-export const fetchUserData = async (username) => {
+export const searchUsers = async ({ username, location, minRepos }) => {
+  // Build search query dynamically
+  let query = username;
+
+  if (location) {
+    query += ` location:${location}`;
+  }
+
+  if (minRepos) {
+    query += ` repos:>${minRepos}`;
+  }
+
   try {
-    const response = await axios.get(`${BASE_URL}/${username}`, {
+    const response = await axios.get(BASE_URL, {
+      params: { q: query },
       headers: API_KEY
         ? { Authorization: `token ${API_KEY}` }
         : {},
     });
 
-    return response.data;
+    return response.data.items; // array of users
   } catch (error) {
-    // Rethrow error so the calling component can handle it
     throw error;
   }
 };

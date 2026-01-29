@@ -1,82 +1,100 @@
-// Import React and the useState hook for managing component state
 import React, { useState } from "react";
-
-// Import the API helper function that fetches user data from GitHub
 import { fetchUserData } from "../services/githubService";
 
 function Search() {
-  // Holds the value typed into the input field
   const [username, setUsername] = useState("");
+  const [location, setLocation] = useState("");
+  const [minRepos, setMinRepos] = useState("");
 
-  // Stores the GitHub user data returned from the API
   const [user, setUser] = useState(null);
-
-  // Tracks whether the API request is in progress
   const [loading, setLoading] = useState(false);
-
-  // Stores an error message if the API request fails
   const [error, setError] = useState("");
 
-  // Handles form submission when the user clicks "Search"
   const handleSubmit = async (e) => {
-    // Prevents the page from refreshing on form submit
     e.preventDefault();
+    if (!username.trim()) return;
 
-    // Stop execution if the input field is empty
-    if (!username) return;
-
-    // Reset state before making a new API request
-    setLoading(true);   // Show loading message
-    setError("");       // Clear previous errors
-    setUser(null);      // Clear previous user data
+    setLoading(true);
+    setError("");
+    setUser(null);
 
     try {
-      // Call the GitHub API service with the entered username
       const data = await fetchUserData(username);
-
-      // Save the returned user data in state
       setUser(data);
     } catch (err) {
-      // Set an error message if the user is not found or request fails
       setError("Looks like we cant find the user");
     } finally {
-      // Stop loading regardless of success or failure
       setLoading(false);
     }
   };
 
   return (
-    <div>
-      {/* Search form */}
-      <form onSubmit={handleSubmit}>
+    <div className="max-w-xl mx-auto p-4">
+      {/* Search Form */}
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white shadow-md rounded-lg p-6 space-y-4"
+      >
+        <h2 className="text-xl font-semibold text-gray-700">
+          GitHub User Search
+        </h2>
+
+        {/* Username */}
         <input
           type="text"
-          placeholder="Enter GitHub username"
-          value={username} // Controlled input value
-          onChange={(e) => setUsername(e.target.value)} // Update state on typing
+          placeholder="GitHub username or keyword"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        <button type="submit">Search</button>
+
+        {/* Location */}
+        <input
+          type="text"
+          placeholder="Location (e.g. Nigeria, London)"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        {/* Minimum repositories */}
+        <input
+          type="number"
+          placeholder="Minimum repositories"
+          value={minRepos}
+          onChange={(e) => setMinRepos(e.target.value)}
+          className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+        >
+          Search
+        </button>
       </form>
 
-      {/* Step 3: Conditional Rendering */}
+      {/* Status messages */}
+      {loading && <p className="text-center mt-4">Loading...</p>}
+      {error && <p className="text-center text-red-500 mt-4">{error}</p>}
 
-      {/* Show loading message while API request is in progress */}
-      {loading && <p>Loading...</p>}
-
-      {/* Show error message if an error exists */}
-      {error && <p>{error}</p>}
-
-      {/* Show user details only if user data exists */}
+      {/* Basic result (temporary, will upgrade later) */}
       {user && (
-        <div>
-          {/* GitHub profile picture */}
-          <img src={user.avatar_url} alt={user.login} width="100" />
-
-          {/* Display user's real name or fallback to username */}
-          <h3>{user.name || user.login}</h3>
-
-          {/* Link to GitHub profile */}
-          <a href={user.html_url} target="_blank" rel="noreferrer">
+        <div className="mt-6 text-center">
+          <img
+            src={user.avatar_url}
+            alt={user.login}
+            className="w-24 h-24 rounded-full mx-auto"
+          />
+          <h3 className="mt-2 font-semibold">
+            {user.name || user.login}
+          </h3>
+          <a
+            href={user.html_url}
+            target="_blank"
+            rel="noreferrer"
+            className="text-blue-600 hover:underline"
+          >
             View GitHub Profile
           </a>
         </div>
