@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d"
+  },
+  {
+    "id": 2,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+    "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398"
+  },
+  {
+    "id": 3,
+    "title": "Caesar Salad",
+    "summary": "Fresh romaine lettuce with Caesar dressing, croutons, and parmesan cheese.",
+    "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9"
+  },
+  {
+    "id": 4,
+    "title": "Beef Tacos",
+    "summary": "Seasoned ground beef in crispy taco shells with lettuce, cheese, and salsa.",
+    "image": "https://images.unsplash.com/photo-1613514785940-daed07799d9b"
+  },
+  {
+    "id": 5,
+    "title": "Vegetable Stir Fry",
+    "summary": "Colorful mix of fresh vegetables stir-fried in a savory sauce.",
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
+  },
+ {
+  "id": 6,
+  "title": "Margherita Pizza",
+  "summary": "Traditional Italian pizza with tomato sauce, mozzarella cheese, and fresh basil.",
+  "image": "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&w=600&q=60"
+}
+
+]
