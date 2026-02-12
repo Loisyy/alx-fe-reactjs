@@ -3,37 +3,164 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d"
+    "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=600&q=60",
+    "ingredients": [
+      "400g spaghetti",
+      "200g pancetta or guanciale, diced",
+      "4 large eggs",
+      "100g Pecorino Romano cheese, grated",
+      "100g Parmesan cheese, grated",
+      "Black pepper to taste",
+      "Salt for pasta water"
+    ],
+    "instructions": [
+      "Bring a large pot of salted water to boil and cook spaghetti according to package directions.",
+      "While pasta cooks, fry pancetta in a large skillet until crispy, about 5-7 minutes.",
+      "In a bowl, whisk together eggs, Pecorino Romano, Parmesan, and black pepper.",
+      "Reserve 1 cup of pasta water, then drain the pasta.",
+      "Remove skillet from heat and add hot pasta to the pancetta.",
+      "Quickly stir in the egg mixture, adding pasta water as needed to create a creamy sauce.",
+      "Serve immediately with extra cheese and black pepper."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398"
+    "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=60",
+    "ingredients": [
+      "500g boneless chicken, cubed",
+      "1 cup plain yogurt",
+      "2 tbsp tikka masala spice blend",
+      "3 cloves garlic, minced",
+      "1 inch ginger, grated",
+      "400g canned tomatoes",
+      "200ml heavy cream",
+      "2 tbsp butter",
+      "1 onion, finely chopped",
+      "Fresh cilantro for garnish",
+      "Salt to taste"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt, 1 tbsp spice blend, garlic, and ginger for at least 2 hours.",
+      "Grill or bake marinated chicken until cooked through, about 15-20 minutes.",
+      "In a large pan, melt butter and sauté onions until golden.",
+      "Add remaining spice blend and cook for 1 minute until fragrant.",
+      "Add canned tomatoes and simmer for 10 minutes.",
+      "Blend the sauce until smooth, then return to pan.",
+      "Add cream and cooked chicken, simmer for 5 minutes.",
+      "Garnish with fresh cilantro and serve with rice or naan."
+    ]
   },
   {
     "id": 3,
     "title": "Caesar Salad",
     "summary": "Fresh romaine lettuce with Caesar dressing, croutons, and parmesan cheese.",
-    "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9"
+    "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=600&q=60",
+    "ingredients": [
+      "2 romaine lettuce hearts, chopped",
+      "1 cup croutons",
+      "1/2 cup Parmesan cheese, shaved",
+      "3 anchovy fillets",
+      "2 cloves garlic",
+      "1 egg yolk",
+      "2 tbsp lemon juice",
+      "1 tsp Dijon mustard",
+      "1/2 cup olive oil",
+      "Salt and black pepper to taste"
+    ],
+    "instructions": [
+      "Make the dressing: Mince anchovies and garlic together into a paste.",
+      "In a bowl, whisk together anchovy paste, egg yolk, lemon juice, and mustard.",
+      "Slowly drizzle in olive oil while whisking constantly until emulsified.",
+      "Season with salt and pepper to taste.",
+      "Toss chopped romaine with dressing until well coated.",
+      "Top with croutons and shaved Parmesan.",
+      "Serve immediately for best texture."
+    ]
   },
   {
     "id": 4,
     "title": "Beef Tacos",
     "summary": "Seasoned ground beef in crispy taco shells with lettuce, cheese, and salsa.",
-    "image": "https://images.unsplash.com/photo-1613514785940-daed07799d9b"
+    "image": "https://images.unsplash.com/photo-1613514785940-daed07799d9b?auto=format&fit=crop&w=600&q=60",
+    "ingredients": [
+      "500g ground beef",
+      "1 onion, diced",
+      "2 cloves garlic, minced",
+      "2 tbsp taco seasoning",
+      "1/2 cup water",
+      "12 taco shells",
+      "2 cups lettuce, shredded",
+      "1 cup cheddar cheese, shredded",
+      "1 cup salsa",
+      "Sour cream for topping"
+    ],
+    "instructions": [
+      "In a large skillet, cook ground beef over medium heat until browned.",
+      "Add diced onion and garlic, cook until softened, about 5 minutes.",
+      "Stir in taco seasoning and water, simmer for 5 minutes.",
+      "Warm taco shells according to package directions.",
+      "Fill each shell with seasoned beef.",
+      "Top with shredded lettuce, cheese, salsa, and sour cream.",
+      "Serve immediately while shells are still crispy."
+    ]
   },
   {
     "id": 5,
     "title": "Vegetable Stir Fry",
     "summary": "Colorful mix of fresh vegetables stir-fried in a savory sauce.",
-    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=60",
+    "ingredients": [
+      "2 cups broccoli florets",
+      "1 bell pepper, sliced",
+      "1 carrot, julienned",
+      "1 cup snap peas",
+      "200g mushrooms, sliced",
+      "3 tbsp soy sauce",
+      "2 tbsp oyster sauce",
+      "1 tbsp sesame oil",
+      "2 cloves garlic, minced",
+      "1 tsp ginger, grated",
+      "2 tbsp vegetable oil"
+    ],
+    "instructions": [
+      "Heat vegetable oil in a wok or large skillet over high heat.",
+      "Add garlic and ginger, stir-fry for 30 seconds.",
+      "Add broccoli and carrots, stir-fry for 3 minutes.",
+      "Add bell peppers, snap peas, and mushrooms, cook for 2 minutes.",
+      "In a small bowl, mix soy sauce, oyster sauce, and sesame oil.",
+      "Pour sauce over vegetables and toss to coat.",
+      "Cook for 1 more minute until vegetables are tender-crisp.",
+      "Serve hot over rice or noodles."
+    ]
   },
- {
-  "id": 6,
-  "title": "Margherita Pizza",
-  "summary": "Traditional Italian pizza with tomato sauce, mozzarella cheese, and fresh basil.",
-  "image": "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&w=600&q=60"
-}
-
+  {
+    "id": 6,
+    "title": "Margherita Pizza",
+    "summary": "Traditional Italian pizza with tomato sauce, mozzarella cheese, and fresh basil.",
+    "image": "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&w=600&q=60",
+    "ingredients": [
+      "1 pizza dough (store-bought or homemade)",
+      "1/2 cup pizza sauce",
+      "200g fresh mozzarella, sliced",
+      "2 tomatoes, sliced",
+      "Fresh basil leaves",
+      "2 tbsp olive oil",
+      "1 clove garlic, minced",
+      "Salt and pepper to taste",
+      "Parmesan cheese for sprinkling"
+    ],
+    "instructions": [
+      "Preheat oven to 475°F (245°C) with a pizza stone if available.",
+      "Roll out pizza dough into a 12-inch circle on floured surface.",
+      "Brush dough with olive oil mixed with minced garlic.",
+      "Spread pizza sauce evenly over the dough.",
+      "Arrange mozzarella slices and tomato slices on top.",
+      "Season with salt and pepper.",
+      "Bake for 12-15 minutes until crust is golden and cheese is bubbly.",
+      "Remove from oven, top with fresh basil and drizzle with olive oil.",
+      "Let cool for 2 minutes before slicing."
+    ]
+  }
 ]
