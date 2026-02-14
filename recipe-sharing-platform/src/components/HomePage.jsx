@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import RecipeData from "../data.json";
 
+
 function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
@@ -60,6 +61,16 @@ function HomePage() {
             </p>
           </div>
         )}
+        {/*call to action*/}
+        <div className="mt-12 text-center">
+  <Link
+    to="/add-recipe"
+    className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+  >
+    Share Your Recipe
+  </Link>
+</div>
+
       </main>
 
       {/* Footer */}
