@@ -1,0 +1,17 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(135deg, #f0f4ff 0%, #faf0ff 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 16px;
+}
+
+.app {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
