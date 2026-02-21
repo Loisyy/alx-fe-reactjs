@@ -33,7 +33,12 @@ const PostsComponent = () => {
     isFetching,
     dataUpdatedAt,
     refetch,
-  } = useQuery('posts', fetchPosts);
+  } = useQuery('posts', fetchPosts, {
+    staleTime: 1000 * 60 * 5,        // 5 minutes — data stays fresh
+    cacheTime: 1000 * 60 * 10,       // 10 minutes — cache persists after unmount
+    refetchOnWindowFocus: false,      // don't refetch when tab regains focus
+    keepPreviousData: true,           // keep old data visible while refetching
+  });
 
   // ── Derived state ──────────────────────────────────────────────────────────
   const filteredPosts = posts

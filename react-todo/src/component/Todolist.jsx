@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import AddTodoForm from './AddTodoForm';
 import TodoItem from './TodoItem';
-import '../styles/TodoList.css';
 
 const TodoList = () => {
   const [todos, setTodos] = useState([
@@ -12,10 +11,8 @@ const TodoList = () => {
 
   const addTodo = (text) => {
     if (!text.trim()) return;
-    setTodos([
-      ...todos,
-      { id: Date.now(), text: text.trim(), completed: false },
-    ]);
+    const newTodo = { id: Date.now(), text, completed: false };
+    setTodos([...todos, newTodo]);
   };
 
   const toggleTodo = (id) => {
@@ -31,18 +28,16 @@ const TodoList = () => {
   };
 
   return (
-    <div className="todo-wrapper">
+    <div>
       <h1>Todo List</h1>
-
-      <AddTodoForm onAdd={addTodo} />
-
+      <AddTodoForm addTodo={addTodo} />
       <ul data-testid="todo-list">
         {todos.map((todo) => (
           <TodoItem
             key={todo.id}
             todo={todo}
-            onToggle={toggleTodo}
-            onDelete={deleteTodo}
+            toggleTodo={toggleTodo}
+            deleteTodo={deleteTodo}
           />
         ))}
       </ul>

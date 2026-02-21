@@ -1,11 +1,8 @@
-import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate, Routes, Route } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import ProfileDetails from './ProfileDetails';
+import ProfileSettings from './ProfileSettings';
 
-/**
- * Profile is the layout component for the /profile nested route.
- * It renders a sidebar with sub-navigation and an <Outlet /> where
- * child routes (ProfileDetails, ProfileSettings) render.
- */
 const Profile = () => {
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
@@ -46,7 +43,11 @@ const Profile = () => {
       </aside>
 
       <main className="profile-content">
-        {/* Child routes render here */}
+        {/* Nested Routes — renders ProfileDetails or ProfileSettings */}
+        <Routes>
+          <Route index element={<ProfileDetails />} />
+          <Route path="settings" element={<ProfileSettings />} />
+        </Routes>
         <Outlet />
       </main>
     </div>

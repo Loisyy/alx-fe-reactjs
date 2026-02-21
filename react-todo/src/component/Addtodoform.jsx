@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-const AddTodoForm = ({ onAdd }) => {
+const AddTodoForm = ({ addTodo }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!inputValue.trim()) return;
-    onAdd(inputValue);
+    addTodo(inputValue);
     setInputValue('');
   };
 

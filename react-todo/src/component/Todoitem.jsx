@@ -1,8 +1,8 @@
-const TodoItem = ({ todo, onToggle, onDelete }) => {
+const TodoItem = ({ todo, toggleTodo, deleteTodo }) => {
   return (
     <li data-testid={`todo-item-${todo.id}`}>
       <span
-        onClick={() => onToggle(todo.id)}
+        onClick={() => toggleTodo(todo.id)}
         style={{
           textDecoration: todo.completed ? 'line-through' : 'none',
           cursor: 'pointer',
@@ -12,7 +12,7 @@ const TodoItem = ({ todo, onToggle, onDelete }) => {
         {todo.text}
       </span>
       <button
-        onClick={() => onDelete(todo.id)}
+        onClick={() => deleteTodo(todo.id)}
         data-testid={`delete-btn-${todo.id}`}
       >
         Delete
