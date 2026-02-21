@@ -1,27 +1,27 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
 const validationSchema = Yup.object({
   username: Yup.string()
-    .min(3, "Username must be at least 3 characters")
-    .required("Username is required"),
+    .min(3, 'Username must be at least 3 characters')
+    .required('Username is required'),
   email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
+    .email('Invalid email address')
+    .required('Email is required'),
   password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
-    .required("Password is required"),
+    .min(6, 'Password must be at least 6 characters')
+    .required('Password is required'),
 });
 
-const FormikForm = () => {
-  const initialValues = {
-    username: "",
-    email: "",
-    password: "",
-  };
+const initialValues = {
+  username: '',
+  email: '',
+  password: '',
+};
 
+const formikForm = () => {
   const handleSubmit = (values, { setSubmitting, resetForm }) => {
-    console.log("Formik form submitted:", values);
+    console.log('Formik form submitted:', values);
     alert(`Registration successful! Welcome, ${values.username}!`);
     resetForm();
     setSubmitting(false);
@@ -36,7 +36,7 @@ const FormikForm = () => {
         onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
-          <Form noValidate>
+          <Form>
             <div className="form-group">
               <label htmlFor="username">Username</label>
               <Field
@@ -45,11 +45,7 @@ const FormikForm = () => {
                 name="username"
                 placeholder="Enter your username"
               />
-              <ErrorMessage
-                name="username"
-                component="span"
-                className="error"
-              />
+              <ErrorMessage name="username" component="div" className="error" />
             </div>
 
             <div className="form-group">
@@ -60,11 +56,7 @@ const FormikForm = () => {
                 name="email"
                 placeholder="Enter your email"
               />
-              <ErrorMessage
-                name="email"
-                component="span"
-                className="error"
-              />
+              <ErrorMessage name="email" component="div" className="error" />
             </div>
 
             <div className="form-group">
@@ -75,15 +67,11 @@ const FormikForm = () => {
                 name="password"
                 placeholder="Enter your password"
               />
-              <ErrorMessage
-                name="password"
-                component="span"
-                className="error"
-              />
+              <ErrorMessage name="password" component="div" className="error" />
             </div>
 
             <button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Registering..." : "Register"}
+              {isSubmitting ? 'Submitting...' : 'Register'}
             </button>
           </Form>
         )}
@@ -92,4 +80,4 @@ const FormikForm = () => {
   );
 };
 
-export default FormikForm;
+export default formikForm;
