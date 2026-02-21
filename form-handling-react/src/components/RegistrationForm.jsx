@@ -1,40 +1,29 @@
 import { useState } from "react";
 
 const RegistrationForm = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.username.trim()) {
+    if (!username.trim()) {
       newErrors.username = "Username is required";
     }
-    if (!formData.email.trim()) {
+    if (!email.trim()) {
       newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       newErrors.email = "Invalid email address";
     }
-    if (!formData.password.trim()) {
+    if (!password.trim()) {
       newErrors.password = "Password is required";
-    } else if (formData.password.length < 6) {
+    } else if (password.length < 6) {
       newErrors.password = "Password must be at least 6 characters";
     }
     return newErrors;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error for field on change
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }));
-    }
   };
 
   const handleSubmit = (e) => {
@@ -45,14 +34,14 @@ const RegistrationForm = () => {
       return;
     }
     setSubmitted(true);
-    console.log("Form submitted:", formData);
+    console.log("Form submitted:", { username, email, password });
   };
 
   if (submitted) {
     return (
       <div className="success-message">
         <h3>Registration Successful!</h3>
-        <p>Welcome, {formData.username}!</p>
+        <p>Welcome, {username}!</p>
       </div>
     );
   }
@@ -67,8 +56,11 @@ const RegistrationForm = () => {
             type="text"
             id="username"
             name="username"
-            value={formData.username}
-            onChange={handleChange}
+            value={username}
+            onChange={(e) => {
+              setUsername(e.target.value);
+              if (errors.username) setErrors((prev) => ({ ...prev, username: "" }));
+            }}
             placeholder="Enter your username"
           />
           {errors.username && (
@@ -82,8 +74,11 @@ const RegistrationForm = () => {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              if (errors.email) setErrors((prev) => ({ ...prev, email: "" }));
+            }}
             placeholder="Enter your email"
           />
           {errors.email && <span className="error">{errors.email}</span>}
@@ -95,8 +90,11 @@ const RegistrationForm = () => {
             type="password"
             id="password"
             name="password"
-            value={formData.password}
-            onChange={handleChange}
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              if (errors.password) setErrors((prev) => ({ ...prev, password: "" }));
+            }}
             placeholder="Enter your password"
           />
           {errors.password && (
@@ -111,4 +109,3 @@ const RegistrationForm = () => {
 };
 
 export default RegistrationForm;
-

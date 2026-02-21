@@ -1,25 +1,21 @@
 const TodoItem = ({ todo, onToggle, onDelete }) => {
   return (
-    <li
-      className={`todo-item ${todo.completed ? 'todo-completed' : ''}`}
-      data-testid={`todo-item-${todo.id}`}
-    >
-      <button
-        className="todo-toggle"
+    <li data-testid={`todo-item-${todo.id}`}>
+      <span
         onClick={() => onToggle(todo.id)}
-        aria-label={`Toggle: ${todo.text}`}
-        aria-pressed={todo.completed}
+        style={{
+          textDecoration: todo.completed ? 'line-through' : 'none',
+          cursor: 'pointer',
+        }}
+        data-testid={`todo-text-${todo.id}`}
       >
-        <span className="todo-checkbox">{todo.completed ? '✓' : ''}</span>
-        <span className="todo-text">{todo.text}</span>
-      </button>
-
+        {todo.text}
+      </span>
       <button
-        className="todo-delete"
         onClick={() => onDelete(todo.id)}
-        aria-label={`Delete: ${todo.text}`}
+        data-testid={`delete-btn-${todo.id}`}
       >
-        ✕
+        Delete
       </button>
     </li>
   );

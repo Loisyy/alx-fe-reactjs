@@ -1,71 +1,51 @@
 import { useState } from 'react';
-import AddTodoForm from '../component/Addtodoform';
-import TodoItem from './Todoitem';
-import '../styles/Todolist.css';
-
-const initialTodos = [
-  { id: 1, text: 'Learn React Testing Library', completed: false },
-  { id: 2, text: 'Write unit tests with Jest', completed: false },
-  { id: 3, text: 'Build a Todo List component', completed: true },
-];
+import AddTodoForm from './AddTodoForm';
+import TodoItem from './TodoItem';
+import '../styles/TodoList.css';
 
 const TodoList = () => {
-  const [todos, setTodos] = useState(initialTodos);
+  const [todos, setTodos] = useState([
+    { id: 1, text: 'Learn React Testing Library', completed: false },
+    { id: 2, text: 'Write unit tests with Jest', completed: false },
+    { id: 3, text: 'Build a Todo List component', completed: true },
+  ]);
 
   const addTodo = (text) => {
-    const trimmed = text.trim();
-    if (!trimmed) return;
-    setTodos((prev) => [
-      ...prev,
-      { id: Date.now(), text: trimmed, completed: false },
+    if (!text.trim()) return;
+    setTodos([
+      ...todos,
+      { id: Date.now(), text: text.trim(), completed: false },
     ]);
   };
 
   const toggleTodo = (id) => {
-    setTodos((prev) =>
-      prev.map((todo) =>
+    setTodos(
+      todos.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
   };
 
   const deleteTodo = (id) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
-
-  const remaining = todos.filter((t) => !t.completed).length;
 
   return (
     <div className="todo-wrapper">
-      <header className="todo-header">
-        <h1>📝 Todo List</h1>
-        <span className="todo-counter">
-          {remaining} task{remaining !== 1 ? 's' : ''} remaining
-        </span>
-      </header>
+      <h1>Todo List</h1>
 
       <AddTodoForm onAdd={addTodo} />
 
-      {todos.length === 0 ? (
-        <p className="todo-empty">No todos yet — add one above!</p>
-      ) : (
-        <ul className="todo-list" aria-label="todo list">
-          {todos.map((todo) => (
-            <TodoItem
-              key={todo.id}
-              todo={todo}
-              onToggle={toggleTodo}
-              onDelete={deleteTodo}
-            />
-          ))}
-        </ul>
-      )}
-
-      {todos.length > 0 && (
-        <footer className="todo-footer">
-          {todos.length} total · {todos.filter((t) => t.completed).length} completed
-        </footer>
-      )}
+      <ul data-testid="todo-list">
+        {todos.map((todo) => (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            onToggle={toggleTodo}
+            onDelete={deleteTodo}
+          />
+        ))}
+      </ul>
     </div>
   );
 };
