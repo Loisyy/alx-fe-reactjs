@@ -1,78 +1,52 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import TodoItem from './TodoItem';
+import AddTodoForm from './AddTodoForm';
 
 const TodoList = () => {
   const [todos, setTodos] = useState([
-    { id: 1, text: 'Learn React Testing Library', completed: false },
-    { id: 2, text: 'Write unit tests with Jest', completed: false },
-    { id: 3, text: 'Build a Todo List component', completed: true },
+    { id: 1, text: 'Learn React', completed: false },
+    { id: 2, text: 'Build a Todo App', completed: true },
+    { id: 3, text: 'Write Tests', completed: false }
   ]);
 
-  const [newTodo, setNewTodo] = useState('');
-
-  const addTodo = () => {
-    if (newTodo.trim()) {
-      setTodos([
-        ...todos,
-        { id: Date.now(), text: newTodo.trim(), completed: false },
-      ]);
-      setNewTodo('');
-    }
+  const addTodo = (text) => {
+    const newTodo = {
+      id: Date.now(),
+      text,
+      completed: false
+    };
+    setTodos([...todos, newTodo]);
   };
 
   const toggleTodo = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
+    setTodos(todos.map(todo =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    ));
   };
 
   const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    addTodo();
+    setTodos(todos.filter(todo => todo.id !== id));
   };
 
   return (
-    <div>
+    <div className="todo-list" data-testid="todo-list">
       <h1>Todo List</h1>
-
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={newTodo}
-          onChange={(e) => setNewTodo(e.target.value)}
-          placeholder="Add a new todo"
-          data-testid="todo-input"
-        />
-        <button type="submit">Add Todo</button>
-      </form>
-
-      <ul data-testid="todo-list">
-        {todos.map((todo) => (
-          <li key={todo.id} data-testid={`todo-item-${todo.id}`}>
-            <span
-              onClick={() => toggleTodo(todo.id)}
-              style={{
-                textDecoration: todo.completed ? 'line-through' : 'none',
-                cursor: 'pointer',
-              }}
-              data-testid={`todo-text-${todo.id}`}
-            >
-              {todo.text}
-            </span>
-            <button
-              onClick={() => deleteTodo(todo.id)}
-              data-testid={`delete-btn-${todo.id}`}
-            >
-              Delete
-            </button>
-          </li>
+      <AddTodoForm onAdd={addTodo} />
+      <ul className="todo-items">
+        {todos.map(todo => (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            onToggle={toggleTodo}
+            onDelete={deleteTodo}
+          />
         ))}
       </ul>
+      <div className="todo-stats">
+        <p data-testid="todo-count">
+          Total: {todos.length} | Completed: {todos.filter(t => t.completed).length} | Pending: {todos.filter(t => !t.completed).length}
+        </p>
+      </div>
     </div>
   );
 };
